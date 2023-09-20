@@ -21,6 +21,15 @@ function drawClockFace() {
     ctx.lineTo(x2, y2);
     ctx.stroke();
   }
+
+  // Draw clock numbers
+  ctx.font = '20px sans-serif';
+  for (let i = 1; i <= 12; i++) {
+    const angle = (2 * Math.PI / 12) * i;
+    const x = 240 + 180 * Math.cos(angle - Math.PI / 2);
+    const y = 250 + 180 * Math.sin(angle - Math.PI / 2);
+    ctx.fillText(i, x, y);
+  }
 }
 
 function drawClockHands(hours, minutes) {
